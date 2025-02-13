@@ -1,7 +1,20 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "baseUrl": ".",  // Root directory
+    "paths": {
+      "@/*": ["src/*"],           // Alias for src folder
+      "@public/*": ["public/*"]   // Alias for public folder
+    },
+    "jsx": "react-jsx",  // Important for JSX support in .tsx files
+    "target": "ESNext",  // Set appropriate target version
+    "module": "ESNext",  // Use ES module system
+    "moduleResolution": "node",  // Resolves modules like Node
+    "allowJs": true,     // Allow JS files to be imported
+    "esModuleInterop": true,  // For CommonJS compatibility
+    "skipLibCheck": true, // Skips type-checking of declaration files
+    "strict": true,      // Enables strict type-checking
+    "noEmit": true       // Don't emit JS files (useful with bundlers like webpack or Vite)
+  },
+  "include": ["src/**/*"],  // Include all files inside the src folder
+  "exclude": ["node_modules"] // Exclude node_modules from compilation
 }

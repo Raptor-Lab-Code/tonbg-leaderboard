@@ -1,5 +1,7 @@
 {
+  "extends": "./tsconfig.json",  // Ensure this extends the main tsconfig
   "compilerOptions": {
+    "jsx": "react-jsx",  // Use react-jsx for consistency with app.json
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "target": "ES2022",
     "lib": ["ES2023"],
@@ -7,7 +9,7 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
