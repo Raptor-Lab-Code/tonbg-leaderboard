@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import Airdrop from './pages/Airdrop'
+import Community from './pages/Community';
 import './App.css'
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
           <Link to="/Airdrop">Airdrop</Link>
         </nav>*/}
         <Routes>
-          <Route path="/Airdrop" element={<Airdrop />} />
+        <Route path="/" element={<Airdrop />} />
+        <Route path="/Community" element={<Community />} />
         </Routes>
       </Router>
     </div>

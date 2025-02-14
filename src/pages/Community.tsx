@@ -10,14 +10,17 @@ export default function Airdrop() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const userId = queryParams.get('userId');
+    const community = queryParams.get('community');
+    const communityData = testData.find(d => d.Community == community)
 
-    const [ranks, setRanks] = useState<typeof testData>([]);
+    console.log(testData)
+
     const [personal, setPersonal] = useState<{ rank: number, score: number, name: string }>({ rank: 3, score: 10, name: 'Test user' });
 
     useEffect(() => {
         const fetchLB = async () => {
             //const result = await fetch(`http://164.92.227.238/leaderboards/CommunityTournament_leaderboard.json`).then(res => res.json());
-            setRanks(testData)
+            //setRanks(testData)
         }
         fetchLB();
     }, []);
@@ -45,10 +48,8 @@ export default function Airdrop() {
             <h1 className="text-center m-4 mb-32">Community Tournament</h1>
             {/*<LBRow rank={personal.rank} name={personal.name} logo={'/ga.png'} score={personal.score} />*/}
             <div className="flex flex-col w-full flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide mt-[72px] mb-[56px]">
-                {ranks.map((rank: any, index) => {
-                    return <Link className="w-full" to={`/Community/?community=${rank.Community}&userId=${userId}`}>
-                        <LBRow key={index} rank={index + 1} name={rank.Community} logo={getLogo(rank.Community)} score={rank.TotalPoints} />
-                    </Link>
+                {communityData?.Leaderboard.map((player: any, index) => {
+                    return <LBRow key={index} rank={index + 1} name={player.PlayerName} logo={getLogo(community || '')} score={player.Points} />
                 })}
             </div>
         </div>
