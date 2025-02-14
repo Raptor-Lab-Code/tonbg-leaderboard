@@ -6,11 +6,11 @@ import './App.css'
 function App() {
 
   return (
-    <div className="w-screen h-screen">
+    <div className="flex justify-center max-w-[600px] w-screen h-screen p-4">
       <Router>
-        <nav>
+        {/*<nav>
           <Link to="/Airdrop">Airdrop</Link>
-        </nav>
+        </nav>*/}
         <Routes>
           <Route path="/Airdrop" element={<Airdrop />} />
         </Routes>
