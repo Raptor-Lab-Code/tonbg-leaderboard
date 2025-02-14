@@ -6,7 +6,7 @@ import './App.css'
 function App() {
 
   return (
-    <>
+    <div className="w-screen h-screen">
       <Router>
         <nav>
           <Link to="/Airdrop">Airdrop</Link>
@@ -15,7 +15,7 @@ function App() {
           <Route path="/Airdrop" element={<Airdrop />} />
         </Routes>
       </Router>
-    </>
+    </div>
   )
 }
 

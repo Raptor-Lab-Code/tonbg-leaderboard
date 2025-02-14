@@ -11,6 +11,7 @@
     "moduleResolution": "node",  // Resolves modules like Node
     "allowJs": true,     // Allow JS files to be imported
     "esModuleInterop": true,  // For CommonJS compatibility
+    "resolveJsonModule": true,
     "skipLibCheck": true, // Skips type-checking of declaration files
     "strict": true,      // Enables strict type-checking
     "noEmit": true       // Don't emit JS files (useful with bundlers like webpack or Vite)

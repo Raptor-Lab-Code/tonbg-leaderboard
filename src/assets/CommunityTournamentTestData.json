@@ -1,0 +1,50 @@
+[
+    {
+        "Community": "Azara",
+        "Leaderboard": [
+            {
+                "PlayerID": "123458999",
+                "PlayerName": "Dev",
+                "Points": 84,
+                "Rank": 1
+            }
+        ],
+        "TotalPoints": 84
+    },
+    {
+        "Community": "STON.fi",
+        "Leaderboard": [
+            {
+                "PlayerID": "123458999",
+                "PlayerName": "Dev",
+                "Points": 42,
+                "Rank": 1
+            }
+        ],
+        "TotalPoints": 42
+    },
+    {
+        "Community": "TON France",
+        "Leaderboard": [
+            {
+                "PlayerID": "123458999",
+                "PlayerName": "Dev",
+                "Points": 42,
+                "Rank": 1
+            }
+        ],
+        "TotalPoints": 42
+    },
+    {
+        "Community": "TON Keeper",
+        "Leaderboard": [
+            {
+                "PlayerID": "123458999",
+                "PlayerName": null,
+                "Points": 21,
+                "Rank": 1
+            }
+        ],
+        "TotalPoints": 21
+    }
+]
