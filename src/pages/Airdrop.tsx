@@ -23,20 +23,9 @@ export default function Airdrop() {
     }, []);
 
     return (
-        <div>
-            <h1 className="text-center h-[20%]">Community Tournament</h1>
+        <div className="w-[90%]">
+            <div className="text-center text-4xl h-[20%]">Community Tournament</div>
             <div className="flex flex-col w-full h-[80%] flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide">
-                {ranks.map((rank: any, index) => (
-                    <Link
-                        key={index}
-                        to={`/Community/?community=${rank.Community}&userId=${userId}`}
-                        className="w-full no-underline"
-                        style={{ color: '#FFD700' }} // Gold color for text
-                    >
-                        <LBRow rank={index + 1} name={rank.Community} logo={getLogo(rank.Community)} score={rank.TotalPoints} />
-                    </Link>
-
-                ))}
                 {ranks.map((rank: any, index) => (
                     <Link
                         key={index}

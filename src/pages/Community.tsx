@@ -31,6 +31,7 @@ export default function Airdrop() {
 
             const communityData = result.find((d: any) => d.Community == community);
 
+            console.log(communityData.Leaderboard)
             setRanks(communityData?.Leaderboard || []);
 
             const user = communityData?.Leaderboard.find((p: any) => p.PlayerID == userId?.toString())
@@ -41,8 +42,8 @@ export default function Airdrop() {
     }, []);
 
     return (
-        <div>
-            <h1 className="text-center h-[20%]">{`${community}`}</h1>
+        <div className="w-[90%]">
+            <div className="text-center text-4xl h-[20%]">{community}</div>
             {personal && <LBRow className="mt-4 mb-4" rank={personal.Rank} name={personal.PlayerName} logo={'/ga.png'} score={personal.Points} />}
             <div style={{ height: `${height}%` }} className={`flex flex-col w-full flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide`}>
                 {ranks.map((rank: any, index) => (
@@ -52,7 +53,7 @@ export default function Airdrop() {
                         className="w-full no-underline"
                         style={{ color: '#FFD700' }} // Gold color for text
                     >
-                        <LBRow rank={index + 1} name={rank.Community} logo={getLogo(rank.Community)} score={rank.TotalPoints} />
+                        <LBRow rank={index + 1} name={rank.PlayerName} logo={getLogo(rank.Community)} score={rank.Points} />
                     </Link>
                 ))}
             </div>
