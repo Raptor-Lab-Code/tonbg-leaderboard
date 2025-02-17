@@ -12,44 +12,42 @@ export default function Airdrop() {
     const userId = queryParams.get('userId');
 
     const [ranks, setRanks] = useState<typeof testData>([]);
-    const [personal, setPersonal] = useState<{ rank: number, score: number, name: string }>({ rank: 3, score: 10, name: 'Test user' });
 
     useEffect(() => {
         const fetchLB = async () => {
-            //const result = await fetch(`http://164.92.227.238/leaderboards/CommunityTournament_leaderboard.json`).then(res => res.json());
-            setRanks(testData)
-        }
-        fetchLB();
-    }, []);
-
-    useEffect(() => {
-        const fetchLB = async () => {
-            const result = await fetch(`https://api.tonbg.com/get_tournament_points`, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    "PlayerID": userId,
-                    "EventName": "CommunityTournament"
-                })
-            }).then(res => res.json());
-
-            if (result.data) setPersonal(result);
+            const result = await fetch(`https://api.tonbg.com/leaderboards/CommunityTournament_leaderboard.json`)
+                .then(res => res.json())
+            setRanks(result)
         }
         fetchLB();
     }, []);
 
     return (
         <div>
-            <h1 className="text-center m-4 mb-32">Community Tournament</h1>
-            {/*<LBRow rank={personal.rank} name={personal.name} logo={'/ga.png'} score={personal.score} />*/}
-            <div className="flex flex-col w-full flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide mt-[72px] mb-[56px]">
-                {ranks.map((rank: any, index) => {
-                    return <Link className="w-full" to={`/Community/?community=${rank.Community}&userId=${userId}`}>
-                        <LBRow key={index} rank={index + 1} name={rank.Community} logo={getLogo(rank.Community)} score={rank.TotalPoints} />
+            <h1 className="text-center h-[20%]">Community Tournament</h1>
+            <div className="flex flex-col w-full h-[80%] flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide">
+                {ranks.map((rank: any, index) => (
+                    <Link
+                        key={index}
+                        to={`/Community/?community=${rank.Community}&userId=${userId}`}
+                        className="w-full no-underline"
+                        style={{ color: '#FFD700' }} // Gold color for text
+                    >
+                        <LBRow rank={index + 1} name={rank.Community} logo={getLogo(rank.Community)} score={rank.TotalPoints} />
                     </Link>
-                })}
+
+                ))}
+                {ranks.map((rank: any, index) => (
+                    <Link
+                        key={index}
+                        to={`/Community/?community=${rank.Community}&userId=${userId}`}
+                        className="w-full no-underline"
+                        style={{ color: '#FFD700' }} // Gold color for text
+                    >
+                        <LBRow rank={index + 1} name={rank.Community} logo={getLogo(rank.Community)} score={rank.TotalPoints} />
+                    </Link>
+
+                ))}
             </div>
         </div>
     );

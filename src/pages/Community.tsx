@@ -6,51 +6,55 @@ import { useEffect, useState } from "react";
 
 import testData from '../assets/CommunityTournamentTestData.json';
 
+type Player = {
+    PlayerID: string;
+    Points: number;
+    Rank: number;
+    PlayerName?: string | null;
+}
+
 export default function Airdrop() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
+
     const userId = queryParams.get('userId');
     const community = queryParams.get('community');
-    const communityData = testData.find(d => d.Community == community)
 
-    console.log(testData)
-
-    const [personal, setPersonal] = useState<{ rank: number, score: number, name: string }>({ rank: 3, score: 10, name: 'Test user' });
-
-    useEffect(() => {
-        const fetchLB = async () => {
-            //const result = await fetch(`http://164.92.227.238/leaderboards/CommunityTournament_leaderboard.json`).then(res => res.json());
-            //setRanks(testData)
-        }
-        fetchLB();
-    }, []);
+    const [personal, setPersonal] = useState<{ Rank: number, Points: number, PlayerName: string, PlayerID: string } | null>(null);
+    const [ranks, setRanks] = useState<Player[]>([]);
+    const [height, setHeight] = useState<number>(80);
 
     useEffect(() => {
         const fetchLB = async () => {
-            const result = await fetch(`https://api.tonbg.com/get_tournament_points`, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    "PlayerID": userId,
-                    "EventName": "CommunityTournament"
-                })
-            }).then(res => res.json());
+            const result = await fetch(`https://api.tonbg.com/leaderboards/CommunityTournament_leaderboard.json`)
+                .then(res => res.json());
 
-            if (result.data) setPersonal(result);
+            const communityData = result.find((d: any) => d.Community == community);
+
+            setRanks(communityData?.Leaderboard || []);
+
+            const user = communityData?.Leaderboard.find((p: any) => p.PlayerID == userId?.toString())
+
+            if (user) { setPersonal(user); setHeight(55) }
         }
         fetchLB();
     }, []);
 
     return (
         <div>
-            <h1 className="text-center m-4 mb-32">Community Tournament</h1>
-            {/*<LBRow rank={personal.rank} name={personal.name} logo={'/ga.png'} score={personal.score} />*/}
-            <div className="flex flex-col w-full flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide mt-[72px] mb-[56px]">
-                {communityData?.Leaderboard.map((player: any, index) => {
-                    return <LBRow key={index} rank={index + 1} name={player.PlayerName} logo={getLogo(community || '')} score={player.Points} />
-                })}
+            <h1 className="text-center h-[20%]">{`${community}`}</h1>
+            {personal && <LBRow className="mt-4 mb-4" rank={personal.Rank} name={personal.PlayerName} logo={'/ga.png'} score={personal.Points} />}
+            <div style={{ height: `${height}%` }} className={`flex flex-col w-full flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide`}>
+                {ranks.map((rank: any, index) => (
+                    <Link
+                        key={index}
+                        to={`/Community/?community=${rank.Community}&userId=${userId}`}
+                        className="w-full no-underline"
+                        style={{ color: '#FFD700' }} // Gold color for text
+                    >
+                        <LBRow rank={index + 1} name={rank.Community} logo={getLogo(rank.Community)} score={rank.TotalPoints} />
+                    </Link>
+                ))}
             </div>
         </div>
     );
