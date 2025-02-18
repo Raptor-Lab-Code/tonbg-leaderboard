@@ -28,7 +28,7 @@ export default function CommunityTournament() {
 
     return (
         <div className="w-[90%]">
-            <div className="text-center text-4xl h-[20%]">Community Tournament</div>
+            <div className="flex justify-center h-[20%] CB-title"></div>
             <div className="flex flex-col w-full h-[80%] flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide">
                 {ranks.map((rank: any, index) => (
                     <Link

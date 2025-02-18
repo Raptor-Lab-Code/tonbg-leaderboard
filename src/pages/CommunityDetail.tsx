@@ -59,7 +59,10 @@ export default function CommunityDetail() {
 
     return (
         <div className="w-[90%]">
-            <div className="text-center text-4xl h-[20%]">{community}</div>
+            <div className="flex justify-center items-center text-out h-[20%] CB-title">
+                <div className="text-center text-4xl
+                [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]">{community}</div>
+            </div>
             {personal && <LBRow className="mt-4 mb-4" rank={personal.Rank} name={personal.PlayerName} logo={'/ga.png'} score={personal.Points} />}
             <div style={{ height: `${height}%` }} className={`flex flex-col w-full flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide`}>
                 {ranks.map((rank: any, index) => (
