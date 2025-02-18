@@ -47,12 +47,17 @@ export default function CommunityTournament() {
 }
 
 function getLogo(community: string) {
-    console.log(community)
+    let picture = `/img/communities/`;
     switch (community) {
-        case 'Azara': return '/Azara.png';
-        case 'STON.fi': return '/STON.fi.png';
-        case 'TON France': return '/TON France.jpg';
-        case 'TON Keeper': return '/TON Keeper.webp';
-        default: return '/Azara.png';
+        case 'Azara': return picture + '/Azara.png';
+        case 'Elympics': return picture + '/Elympics.png';
+        case 'Pluton': return picture + '/Pluton.png';
+        case 'Pools Games': return picture + '/Pools Games.png';
+        case 'STON.fi': return picture + '/STON.fi.png';
+        case 'Titan': return picture + '/Titan.png';
+        case 'TON France': return picture + '/TON France.jpg';
+        case 'TON Keeper': return picture + '/TON Keeper.webp';
+        case 'TON Punks': return picture + '/TON Punks.png';
+        default: return picture + '/Azara.png';
     }
 }
