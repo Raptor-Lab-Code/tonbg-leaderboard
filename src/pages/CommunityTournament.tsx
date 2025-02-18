@@ -47,7 +47,7 @@ export default function CommunityTournament() {
 }
 
 function getLogo(community: string) {
-    let picture = `/img/communities/`;
+    let picture = `/img/communities`;
     switch (community) {
         case 'Azara': return picture + '/Azara.png';
         case 'Elympics': return picture + '/Elympics.png';
