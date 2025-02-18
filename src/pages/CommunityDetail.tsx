@@ -37,7 +37,7 @@ export default function CommunityDetail() {
 
     const [personal, setPersonal] = useState<{ Rank: number, Points: number, PlayerName: string, PlayerID: string } | null>(null);
     const [ranks, setRanks] = useState<Player[]>([]);
-    const [height, setHeight] = useState<number>(80);
+    const [height, setHeight] = useState<number>(70);
     const [communityName, setName] = useState<string>('');
 
     useEffect(() => {
@@ -52,15 +52,16 @@ export default function CommunityDetail() {
 
             const user = communityData?.Leaderboard.find((p: any) => p.PlayerID == userId?.toString())
 
-            if (user) { setPersonal(user); setHeight(55) }
+            if (user) { setPersonal(user); setHeight(45) }
         }
         fetchLB();
     }, []);
 
     return (
         <div className="w-[90%]">
-            <div className="flex justify-center items-center text-out h-[20%] CB-title">
-                <div className="text-center text-4xl
+            <div className="flex flex-col justify-start items-center text-out h-[30%] mb-4">
+                <div className="CB-title w-full h-[66%]"></div>
+                <div className="text-center text-2xl
                 [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]">{community}</div>
             </div>
             {personal && <LBRow className="mt-4 mb-4" rank={personal.Rank} name={personal.PlayerName} score={personal.Points} />}
