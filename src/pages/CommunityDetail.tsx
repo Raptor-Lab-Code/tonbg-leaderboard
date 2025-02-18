@@ -47,8 +47,8 @@ export default function CommunityDetail() {
 
             const communityData = result.find((d: any) => d.Community == community);
             setName(communityData.Community)
-            //setRanks(communityData?.Leaderboard || []);
-            setRanks(testData);
+            setRanks(communityData?.Leaderboard || []);
+            //setRanks(testData);
 
             const user = communityData?.Leaderboard.find((p: any) => p.PlayerID == userId?.toString())
 
