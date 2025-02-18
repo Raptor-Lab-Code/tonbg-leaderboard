@@ -61,8 +61,10 @@ export default function CommunityDetail() {
         <div className="w-[90%]">
             <div className="flex flex-col justify-start items-center text-out h-[30%] mb-4">
                 <div className="CB-title w-full h-[66%]"></div>
-                <div className="text-center text-2xl
-                [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]">{community}</div>
+                <div className="h-[33%] flex flex-row items-center gap-4">
+                    <img className="h-10" src={getLogo(communityName)} />
+                    <div className="text-center text-2xl [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]">{community}</div>
+                </div>
             </div>
             {personal && <LBRow className="mt-4 mb-4" rank={personal.Rank} name={personal.PlayerName} score={personal.Points} />}
             <div style={{ height: `${height}%` }} className={`flex flex-col w-full flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide`}>
@@ -72,4 +74,20 @@ export default function CommunityDetail() {
             </div>
         </div>
     );
+}
+
+function getLogo(community: string) {
+    let picture = `/img/communities`;
+    switch (community) {
+        case 'Azara': return picture + '/Azara.png';
+        case 'Elympics': return picture + '/Elympics.png';
+        case 'Pluton': return picture + '/Pluton.png';
+        case 'Pools Games': return picture + '/Pools Games.png';
+        case 'STON.fi': return picture + '/STON.fi.png';
+        case 'Titan': return picture + '/Titan.png';
+        case 'TON France': return picture + '/TON France.jpg';
+        case 'TON Keeper': return picture + '/TON Keeper.webp';
+        case 'TON Punks': return picture + '/TON Punks.png';
+        default: return picture + '/Azara.png';
+    }
 }
