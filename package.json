@@ -1,7 +1,7 @@
 {
   "name": "tonbg-leaderboard",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -27,8 +27,12 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
+    "npm": "^11.1.0",
+    "sharp": "^0.33.5",
+    "svgo": "^3.3.2",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.22.0",
-    "vite": "^6.1.0"
+    "vite": "^6.1.0",
+    "vite-plugin-image-optimizer": "^1.1.8"
   }
 }
