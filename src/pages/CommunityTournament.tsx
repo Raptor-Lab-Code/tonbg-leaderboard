@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 import testData from '../assets/CommunityTournamentTestData.json';
 
-export default function Airdrop() {
+export default function CommunityTournament() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const userId = queryParams.get('userId');

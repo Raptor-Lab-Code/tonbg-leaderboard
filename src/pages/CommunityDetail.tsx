@@ -24,7 +24,7 @@ type Player = {
     PlayerName?: string | null;
 }
 
-export default function Airdrop() {
+export default function CommunityDetail() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
 
