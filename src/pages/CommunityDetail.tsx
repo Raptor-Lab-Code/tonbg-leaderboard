@@ -63,7 +63,7 @@ export default function CommunityDetail() {
                 <div className="text-center text-4xl
                 [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]">{community}</div>
             </div>
-            {personal && <LBRow className="mt-4 mb-4" rank={personal.Rank} name={personal.PlayerName} logo={'/ga.png'} score={personal.Points} />}
+            {personal && <LBRow className="mt-4 mb-4" rank={personal.Rank} name={personal.PlayerName} score={personal.Points} />}
             <div style={{ height: `${height}%` }} className={`flex flex-col w-full flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide`}>
                 {ranks.map((rank: any, index) => (
                     <Link
@@ -72,7 +72,7 @@ export default function CommunityDetail() {
                         className="w-full no-underline"
                         style={{ color: '#FFD700' }} // Gold color for text
                     >
-                        <LBRow rank={index + 1} name={rank.PlayerName} logo={getLogo(communityName)} score={rank.Points} />
+                        <LBRow rank={index + 1} name={rank.PlayerName} score={rank.Points} />
                     </Link>
                 ))}
             </div>
