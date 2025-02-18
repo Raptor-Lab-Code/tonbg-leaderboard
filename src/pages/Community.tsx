@@ -31,9 +31,14 @@ export default function Airdrop() {
     const userId = queryParams.get('userId');
     const community = queryParams.get('community');
 
+    useEffect(() => {
+        document.title = `TON BG - ${community}`;
+    }, []);
+
     const [personal, setPersonal] = useState<{ Rank: number, Points: number, PlayerName: string, PlayerID: string } | null>(null);
     const [ranks, setRanks] = useState<Player[]>([]);
     const [height, setHeight] = useState<number>(80);
+    const [communityName, setName] = useState<string>('');
 
     useEffect(() => {
         const fetchLB = async () => {
@@ -41,7 +46,7 @@ export default function Airdrop() {
                 .then(res => res.json());
 
             const communityData = result.find((d: any) => d.Community == community);
-
+            setName(communityData.Community)
             //setRanks(communityData?.Leaderboard || []);
             setRanks(testData);
 
@@ -64,7 +69,7 @@ export default function Airdrop() {
                         className="w-full no-underline"
                         style={{ color: '#FFD700' }} // Gold color for text
                     >
-                        <LBRow rank={index + 1} name={rank.PlayerName} logo={getLogo(rank.Community)} score={rank.Points} />
+                        <LBRow rank={index + 1} name={rank.PlayerName} logo={getLogo(communityName)} score={rank.Points} />
                     </Link>
                 ))}
             </div>
@@ -73,10 +78,11 @@ export default function Airdrop() {
 }
 
 function getLogo(community: string) {
+    console.log(community)
     switch (community) {
         case 'Azara': return '/Azara.png';
         case 'STON.fi': return '/STON.fi.png';
-        case 'TON France': return 'TON France.jpg';
+        case 'TON France': return '/TON France.jpg';
         case 'TON Keeper': return '/TON Keeper.webp';
         default: return '/Azara.png';
     }

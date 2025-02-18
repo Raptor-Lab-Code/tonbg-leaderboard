@@ -14,6 +14,10 @@ export default function Airdrop() {
     const [ranks, setRanks] = useState<typeof testData>([]);
 
     useEffect(() => {
+        document.title = "TON BG - Community Tournament";
+    }, []);
+
+    useEffect(() => {
         const fetchLB = async () => {
             const result = await fetch(`https://api.tonbg.com/leaderboards/CommunityTournament_leaderboard.json`)
                 .then(res => res.json())
@@ -43,10 +47,11 @@ export default function Airdrop() {
 }
 
 function getLogo(community: string) {
+    console.log(community)
     switch (community) {
         case 'Azara': return '/Azara.png';
         case 'STON.fi': return '/STON.fi.png';
-        case 'TON France': return 'TON France.jpg';
+        case 'TON France': return '/TON France.jpg';
         case 'TON Keeper': return '/TON Keeper.webp';
         default: return '/Azara.png';
     }
