@@ -102,6 +102,7 @@ function getLink(community: string) {
         case 'STON.fi': return 'http://x.com/ston_fi';
         case 'Titan': return 'http://x.com/TitanAggregator';
         case 'TON Punks': return 'http://x.com/TonPunks';
+        case 'NOT Punks': return 'https://x.com/thenotpunks';
         default: return '';
     }
 }
