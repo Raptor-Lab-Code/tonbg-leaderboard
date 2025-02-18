@@ -63,13 +63,15 @@ export default function CommunityDetail() {
                 <div className="CB-title w-full h-[66%]"></div>
                 <div className="h-[33%] flex flex-row items-center gap-4">
                     <img className="h-10" src={getLogo(communityName)} />
-                    <div className="text-center text-2xl [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]">{community}</div>
+                    <div className="text-center text-2xl [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]">
+                        <a style={{ color: '#FFD700' }} href={getLink(communityName)}>{community}</a>
+                    </div>
                 </div>
             </div>
             {personal && <LBRow className="mt-4 mb-4" rank={personal.Rank} name={personal.PlayerName} score={personal.Points} />}
             <div style={{ height: `${height}%` }} className={`flex flex-col w-full flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide`}>
                 {ranks.map((rank: any, index) => (
-                    <LBRow style={{ color: '#FFD700' }} className="w-full no-underline" rank={index + 1} name={rank.PlayerName} score={rank.Points} />
+                    <LBRow key={index} style={{ color: '#FFD700' }} className="w-full no-underline" rank={index + 1} name={rank.PlayerName} score={rank.Points} />
                 ))}
             </div>
         </div>
@@ -89,5 +91,17 @@ function getLogo(community: string) {
         case 'TON Keeper': return picture + '/TON Keeper.webp';
         case 'TON Punks': return picture + '/TON Punks.png';
         default: return picture + '/Azara.png';
+    }
+}
+
+function getLink(community: string) {
+    switch (community) {
+        case 'Elympics': return 'http://x.com/elympics_ai';
+        case 'Pluton': return 'http://x.com/PlutonFinance';
+        case 'Pools Games': return 'http://x.com/p00lsgames';
+        case 'STON.fi': return 'http://x.com/ston_fi';
+        case 'Titan': return 'http://x.com/TitanAggregator';
+        case 'TON Punks': return 'http://x.com/TonPunks';
+        default: return '';
     }
 }
