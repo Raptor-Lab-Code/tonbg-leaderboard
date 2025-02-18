@@ -66,14 +66,7 @@ export default function CommunityDetail() {
             {personal && <LBRow className="mt-4 mb-4" rank={personal.Rank} name={personal.PlayerName} score={personal.Points} />}
             <div style={{ height: `${height}%` }} className={`flex flex-col w-full flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide`}>
                 {ranks.map((rank: any, index) => (
-                    <Link
-                        key={index}
-                        to={`/Community/?community=${rank.Community}&userId=${userId}`}
-                        className="w-full no-underline"
-                        style={{ color: '#FFD700' }} // Gold color for text
-                    >
-                        <LBRow rank={index + 1} name={rank.PlayerName} score={rank.Points} />
-                    </Link>
+                    <LBRow style={{ color: '#FFD700' }} className="w-full no-underline" rank={index + 1} name={rank.PlayerName} score={rank.Points} />
                 ))}
             </div>
         </div>
