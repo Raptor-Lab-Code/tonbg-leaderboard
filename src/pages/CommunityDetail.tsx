@@ -72,14 +72,3 @@ export default function CommunityDetail() {
         </div>
     );
 }
-
-function getLogo(community: string) {
-    console.log(community)
-    switch (community) {
-        case 'Azara': return '/Azara.png';
-        case 'STON.fi': return '/STON.fi.png';
-        case 'TON France': return '/TON France.jpg';
-        case 'TON Keeper': return '/TON Keeper.webp';
-        default: return '/Azara.png';
-    }
-}
