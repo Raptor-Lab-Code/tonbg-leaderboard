@@ -86,3 +86,21 @@ button:focus-visible {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.TON-title {
+  background-image: url('/TON-LOGO-LIT.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
