@@ -27,7 +27,7 @@ export default function CommunityDetail() {
     const queryParams = new URLSearchParams(location.search);
 
     const userId = queryParams.get('userId');
-    const community = queryParams.get('community');
+    const community = decodeURI(queryParams.get('community') || '');
 
     useEffect(() => {
         document.title = `TON BG - ${community}`;
