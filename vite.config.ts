@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite';
-import {ViteImageOptimizer} from 'vite-plugin-image-optimizer';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 import path from 'path';
 
 const DEFAULT_OPTIONS = {
+  concurrency: 1,
   test: /\.(jpe?g|png|gif|tiff|webp|svg|avif)$/i,
   exclude: undefined,
   include: undefined,
@@ -74,7 +75,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),  // Alias `@` to `src` folder
-      '@public': path.resolve(__dirname, 'public'), 
+      '@public': path.resolve(__dirname, 'public'),
     },
   },
 });
