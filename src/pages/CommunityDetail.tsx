@@ -27,7 +27,7 @@ export default function CommunityDetail() {
     const queryParams = new URLSearchParams(location.search);
 
     const userId = queryParams.get('userId');
-    const community = queryParams.get('community');
+    const community = decodeURI(queryParams.get('community') || '');
 
     useEffect(() => {
         document.title = `TON BG - ${community}`;
@@ -61,12 +61,15 @@ export default function CommunityDetail() {
                 })
             }).then((res) => res.json());
 
-            if (result?.data?.length > 0 && result.data[0].Points > 0) {
-                const userData: Player = {
-                    Rank: result.data[0].Rank,
-                    Points: result.data[0].Points
+            if (result?.data?.length > 0) {
+                const score = result.data.find((score: any) => score.Community == community)
+                if (score) {
+                    const userData: Player = {
+                        Rank: score.Rank,
+                        Points: score.Points
+                    }
+                    setPersonal(userData);
                 }
-                setPersonal(userData);
             }
         }
         fetchUser();
