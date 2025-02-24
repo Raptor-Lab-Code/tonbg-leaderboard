@@ -28,7 +28,6 @@ export default function CommunityDetail() {
 
     const userId = queryParams.get('userId');
     const community = decodeURI(queryParams.get('community') || '');
-    console.log(community)
 
     useEffect(() => {
         document.title = `TON BG - ${community}`;
@@ -64,6 +63,10 @@ export default function CommunityDetail() {
 
             if (result?.data?.length > 0) {
                 const score = result.data.find((score: any) => score.Community == community)
+
+                result.data.forEach((element: any) => {
+                    console.log(`${element.Community} == ${community}`, element.Community == community)
+                });
 
                 if (score) {
                     const userData: Player = {
