@@ -63,11 +63,6 @@ export default function CommunityDetail() {
 
             if (result?.data?.length > 0) {
                 const score = result.data.find((score: any) => score.Community == community)
-
-                result.data.forEach((element: any) => {
-                    console.log(`${element.Community} == ${community}`, element.Community == community)
-                });
-
                 if (score) {
                     const userData: Player = {
                         Rank: score.Rank,
