@@ -18,7 +18,7 @@ const LBRow: FC<LBRowProps> = ({ rank, name, logo, score, className, style }) =>
         <div className='w-16'>{toOrdinal(rank)}</div>
         {logo && <img src={logo} height={35} width={35} className='rounded-full ml-4' />}
         <div className='flex flex-row justify-between w-full ml-4 mr-4'>
-            <div>{name}</div>
+            <div title={name} className="max-[640px]:truncate max-[640px]:max-w-[100px]">{name}</div>
             <div>{score.toLocaleString()}</div>
         </div>
     </div>
