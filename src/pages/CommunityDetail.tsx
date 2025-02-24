@@ -35,7 +35,7 @@ export default function CommunityDetail() {
 
     const [personal, setPersonal] = useState<Player | null>(null);
     const [ranks, setRanks] = useState<Player[]>([]);
-    const [height, setHeight] = useState<number>(70);
+    const [height, setHeight] = useState<number>(65);
     const [communityName, setName] = useState<string>('');
 
     useEffect(() => {
