@@ -18,10 +18,8 @@ const testData = [
 ]
 
 type Player = {
-    PlayerID: string;
     Points: number;
     Rank: number;
-    PlayerName?: string | null;
 }
 
 export default function CommunityDetail() {
@@ -35,7 +33,7 @@ export default function CommunityDetail() {
         document.title = `TON BG - ${community}`;
     }, []);
 
-    const [personal, setPersonal] = useState<{ Rank: number, Points: number, PlayerName: string, PlayerID: string } | null>(null);
+    const [personal, setPersonal] = useState<Player | null>(null);
     const [ranks, setRanks] = useState<Player[]>([]);
     const [height, setHeight] = useState<number>(70);
     const [communityName, setName] = useState<string>('');
@@ -48,13 +46,30 @@ export default function CommunityDetail() {
             const communityData = result.find((d: any) => d.Community == community);
             setName(communityData.Community)
             setRanks(communityData?.Leaderboard || []);
-            //setRanks(testData);
-
-            const user = communityData?.Leaderboard.find((p: any) => p.PlayerID == userId?.toString())
-
-            if (user) { setPersonal(user); setHeight(45) }
         }
         fetchLB();
+    }, []);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const result = await fetch(`https://api.tonbg.com/get_tournament_points`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    "PlayerID": userId,
+                    "EventName": "CommunityTournament"
+                })
+            }).then((res) => res.json());
+
+            if (result?.data?.length > 0 && result.data[0].Points > 0) {
+                const userData: Player = {
+                    Rank: result.data[0].Rank,
+                    Points: result.data[0].Points
+                }
+                setPersonal(userData);
+            }
+        }
+        fetchUser();
     }, []);
 
     return (
@@ -68,7 +83,7 @@ export default function CommunityDetail() {
                     </div>
                 </div>
             </div>
-            {personal && <LBRow className="mt-4 mb-4" rank={personal.Rank} name={personal.PlayerName} score={personal.Points} />}
+            {personal && <LBRow className="mt-4 mb-8" rank={personal.Rank} name={'You'} score={personal.Points} />}
             <div style={{ height: `${height}%` }} className={`flex flex-col w-full flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide`}>
                 {ranks.map((rank: any, index) => (
                     <LBRow key={index} style={{ color: '#FFD700' }} className="w-full no-underline" rank={index + 1} name={rank.PlayerName} score={rank.Points} />
