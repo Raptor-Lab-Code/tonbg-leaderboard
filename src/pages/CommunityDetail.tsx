@@ -50,7 +50,7 @@ export default function CommunityDetail() {
                         Points: score.Points
                     }
                     setPersonal(userData);
-                    setHeight(55);
+                    setHeight(40);
                 }
             }
         }
@@ -62,13 +62,13 @@ export default function CommunityDetail() {
             <div className="flex flex-col justify-start items-center text-out h-[30%] mb-4">
                 {!embedded && <div className="CB-title w-full h-[66%]"></div>}
                 <div className={`h-[33%] flex flex-row items-center gap-4 ${`mt-16`}`}>
-                    <img className="h-10" src={getLogo(communityName)} />
+                    <img className="h-8" src={getLogo(communityName)} />
                     <div className="text-center text-2xl [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]">
                         <a style={{ color: '#FFD700' }} href={getLink(communityName)}>{community}</a>
                     </div>
                 </div>
             </div>
-            {personal && <LBRow className="mt-4 mb-8" rank={personal.Rank} name={'You'} score={personal.Points} />}
+            {personal && <LBRow className="mt-4 mb-4" rank={personal.Rank} name={'You'} score={personal.Points} />}
             <div style={{ height: `${height}%` }} className={`flex flex-col w-full flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide`}>
                 {ranks.map((rank: any, index) => (
                     <LBRow key={index} style={{ color: '#FFD700' }} className="w-full no-underline" rank={index + 1} name={rank.PlayerName} score={rank.Points} />
