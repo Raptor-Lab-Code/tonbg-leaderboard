@@ -50,7 +50,7 @@ export default function CommunityDetail() {
                         Points: score.Points
                     }
                     setPersonal(userData);
-                    setHeight(40);
+                    setHeight(embedded ? 40 : 60);
                 }
             }
         }
