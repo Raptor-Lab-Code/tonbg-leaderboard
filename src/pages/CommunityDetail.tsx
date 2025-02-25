@@ -1,21 +1,6 @@
-
-
-import { Link, useLocation } from "react-router-dom";
 import LBRow from "@/components/LBRow";
 import { useEffect, useState } from "react";
-
-const testData = [
-    { PlayerID: "123458999", PlayerName: "Dev", Points: 84, Rank: 1 },
-    { PlayerID: "123458999", PlayerName: "Test 1", Points: 82, Rank: 2 },
-    { PlayerID: "123458999", PlayerName: "Test 2", Points: 72, Rank: 3 },
-    { PlayerID: "123458999", PlayerName: "Test 3", Points: 60, Rank: 4 },
-    { PlayerID: "123458999", PlayerName: "Test 4", Points: 57, Rank: 5 },
-    { PlayerID: "123458999", PlayerName: "Test 5", Points: 56, Rank: 6 },
-    { PlayerID: "123458999", PlayerName: "Test 6", Points: 45, Rank: 7 },
-    { PlayerID: "123458999", PlayerName: "Test 7", Points: 23, Rank: 8 },
-    { PlayerID: "123458999", PlayerName: "Test 8", Points: 14, Rank: 9 },
-    { PlayerID: "123458999", PlayerName: "Test 9", Points: 3, Rank: 10 },
-]
+import useQueryParams from "@/hooks/useQueryParams";
 
 type Player = {
     Points: number;
@@ -23,11 +8,7 @@ type Player = {
 }
 
 export default function CommunityDetail() {
-    const location = useLocation();
-    const queryParams = new URLSearchParams(location.search);
-
-    const userId = queryParams.get('userId');
-    const community = decodeURI(queryParams.get('community') || '');
+    const { userId, embedded, community } = useQueryParams();
 
     useEffect(() => {
         document.title = `TON BG - ${community}`;
@@ -78,8 +59,8 @@ export default function CommunityDetail() {
     return (
         <div className="w-[90%]">
             <div className="flex flex-col justify-start items-center text-out h-[30%] mb-4">
-                <div className="CB-title w-full h-[66%]"></div>
-                <div className="h-[33%] flex flex-row items-center gap-4">
+                {!embedded && <div className="CB-title w-full h-[66%]"></div>}
+                <div className={`h-[33%] flex flex-row items-center gap-4 ${`mt-16`}`}>
                     <img className="h-10" src={getLogo(communityName)} />
                     <div className="text-center text-2xl [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]">
                         <a style={{ color: '#FFD700' }} href={getLink(communityName)}>{community}</a>

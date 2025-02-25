@@ -3,14 +3,12 @@
 import { Link, useLocation } from "react-router-dom";
 import LBRow from "@/components/LBRow";
 import { useEffect, useState } from "react";
+import useQueryParams from "@/hooks/useQueryParams";
 
 import testData from '../assets/CommunityTournamentTestData.json';
 
 export default function CommunityTournament() {
-    const location = useLocation();
-    const queryParams = new URLSearchParams(location.search);
-    const userId = queryParams.get('userId');
-
+    const { userId, embedded } = useQueryParams();
     const [ranks, setRanks] = useState<typeof testData>([]);
 
     useEffect(() => {
@@ -28,16 +26,16 @@ export default function CommunityTournament() {
 
     return (
         <div className="w-[90%]">
-            <div className="flex justify-center h-[20%] CB-title mb-8"></div>
+            <div className={`flex justify-center CB-title mb-8 ${embedded ? `h-[15%] portrait:mt-16`:`h-[20%]` }`}></div>
             <div className="flex flex-col w-full h-[70%] flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide">
                 {ranks.map((rank: any, index) => (
                     <Link
                         key={index}
-                        to={`/Community/?community=${rank.Community}&userId=${userId}`}
+                        to={`/Community/?community=${rank.Community}&userId=${userId}&embedded=${embedded}`}
                         className="w-full no-underline"
                         style={{ color: '#FFD700' }} // Gold color for text
                     >
-                        <LBRow rank={index + 1} name={rank.Community} logo={getLogo(rank.Community)} score={rank.TotalPoints} />
+                        <LBRow rank={index + 1} name={rank.Community} logo={getLogo(rank.Community)} score={rank.TotalPoints} className="p-3" />
                     </Link>
 
                 ))}
