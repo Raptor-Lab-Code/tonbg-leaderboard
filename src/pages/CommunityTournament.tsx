@@ -35,7 +35,7 @@ export default function CommunityTournament() {
                         className="w-full no-underline"
                         style={{ color: '#FFD700' }} // Gold color for text
                     >
-                        <LBRow rank={index + 1} name={rank.Community} logo={getLogo(rank.Community)} score={rank.TotalPoints} />
+                        <LBRow rank={index + 1} name={rank.Community} logo={getLogo(rank.Community)} score={rank.TotalPoints} className="p-3" />
                     </Link>
 
                 ))}
