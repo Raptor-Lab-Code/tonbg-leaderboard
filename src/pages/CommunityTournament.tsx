@@ -31,7 +31,7 @@ export default function CommunityTournament() {
                 {ranks.map((rank: any, index) => (
                     <Link
                         key={index}
-                        to={`/Community/?community=${rank.Community}&userId=${userId}`}
+                        to={`/Community/?community=${rank.Community}&userId=${userId}&embedded=${embedded}`}
                         className="w-full no-underline"
                         style={{ color: '#FFD700' }} // Gold color for text
                     >
