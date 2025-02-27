@@ -63,7 +63,7 @@ export default function CommunityDetail() {
                 {!embedded && <div className="CB-title w-full h-[66%]"></div>}
                 <div className={`h-[33%] flex flex-row items-center gap-4 ${`mt-16`}`}>
                     <img className="h-8" src={getLogo(communityName)} />
-                    <div className="text-center text-2xl [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]">
+                    <div className="text-center text-2xl">
                         <a style={{ color: '#FFD700' }} href={getLink(communityName)}>{community}</a>
                     </div>
                 </div>
