@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<CommunityTournament />} />
         <Route path="/Community" element={<CommunityDetail />} />
         <Route path="/Season1" element={<SeasonalLeaderboard />} />
-        <Route path="/WhaleIO" element={<WhaleIOLeaderboard />} />
+        <Route path="/whale.io" element={<WhaleIOLeaderboard />} />
         </Routes>
       </Router>
     </div>
