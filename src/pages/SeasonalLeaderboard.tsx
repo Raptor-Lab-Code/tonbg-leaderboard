@@ -22,10 +22,10 @@ export default function SeasonalLeaderboard() {
 
     return (
         <div className="w-[90%]">
-            <div className={`flex justify-center LB-title mb-8 ${embedded ? `h-[15%] portrait:mt-16` : `h-[20%]`}`}></div>
+            <div className={`flex justify-center TON-title mb-8 ${embedded ? `h-[15%] portrait:mt-16` : `h-[20%]`}`}></div>
             <div className="flex flex-col justify-start items-center text-out mb-4">
                 <div className="h-[33%] flex flex-row items-center gap-4">
-                    <div className="text-center text-2xl [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]">
+                    <div className="text-center text-2xl">
                         Season 1
                     </div>
                 </div>
