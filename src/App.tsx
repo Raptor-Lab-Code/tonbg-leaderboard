@@ -13,7 +13,7 @@ function App() {
     <div className="flex justify-center max-w-[600px] w-screen h-screen p-4">
       <Router>
         <Routes>
-        <Route path="/" element={<CommunityTournament />} />
+        <Route path="/" element={<Season2Leaderboard />} />
         <Route path="/Community" element={<CommunityDetail />} />
         <Route path="/Season1" element={<SeasonalLeaderboard />} />
         <Route path="/Season2" element={<Season2Leaderboard />} />
