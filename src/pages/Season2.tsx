@@ -2,17 +2,17 @@ import LBRow from "@/components/LBRow";
 import useQueryParams from "@/hooks/useQueryParams";
 import { useEffect, useState } from "react";
 
-export default function SeasonalLeaderboard() {
+export default function Season2Leaderboard() {
     const { embedded } = useQueryParams();
 
     const [ranks, setRanks] = useState([]);
     useEffect(() => {
-        document.title = "TON BG - Season 1";
+        document.title = "TON BG - Season 2";
     }, []);
 
     useEffect(() => {
         const fetchLB = async () => {
-            const result = await fetch(`https://api.tonbg.com/leaderboards/global/Season%201_leaderboard.json`)
+            const result = await fetch(`https://api.tonbg.com/leaderboards/global/Season2_leaderboard.json`)
                 .then(res => res.json());
 
             setRanks(result.Leaderboard)
@@ -26,7 +26,7 @@ export default function SeasonalLeaderboard() {
             <div className="flex flex-col justify-start items-center text-out mb-4">
                 <div className="h-[33%] flex flex-row items-center gap-4">
                     <div className="text-center text-2xl">
-                        Season 1
+                        Season 2
                     </div>
                 </div>
             </div>
