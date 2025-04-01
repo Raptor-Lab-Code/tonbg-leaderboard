@@ -17,7 +17,6 @@ export default function Season2() {
     const [personal, setPersonal] = useState<Player | null>(null);
     const [ranks, setRanks] = useState<Player[]>([]);
     const [height, setHeight] = useState<number>(65);
-    const [communityName, setName] = useState<string>('');
 
     useEffect(() => {
         const fetchLB = async () => {
