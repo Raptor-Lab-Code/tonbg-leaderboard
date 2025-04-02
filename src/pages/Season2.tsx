@@ -30,19 +30,13 @@ export default function Season2() {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const result = await fetch(`https://api.tonbg.com/get_airdrop_points_season`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    "PlayerID": userId,
-                    "EventName": "Season 2"
-                })
-            }).then((res) => res.json());
+            const result = await fetch(`https://api.tonbg.com/get_all_seasons_airdrop_points/${userId}`).then((res) => res.json());
+            const data = result.Season2;
 
-            if (result.Rank) {
+            if (data && data.Rank) {
                 const userData: Player = {
-                    Rank: result.Rank,
-                    Points: result.NewPoints
+                    Rank: data.Rank,
+                    Points: data.NewPoints
                 }
                 setPersonal(userData);
                 setHeight(embedded ? 40 : 60);
