@@ -57,6 +57,8 @@ function getLogo(community: string) {
         case 'TON Keeper': return picture + '/TON Keeper.webp';
         case 'TON Punks': return picture + '/TON Punks.png';
         case 'NOT Punks': return picture + '/NotPunks.jpg';
+        case 'Boinkers': return picture + '/Boinkers.png';
+        case 'Ton Trading Bot': return picture + '/Ton_Trading_Bot.png';
         default: return picture + '/Azara.png';
     }
 }
