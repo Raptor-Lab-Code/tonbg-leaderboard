@@ -38,13 +38,13 @@ export default function CommunityDetail() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     "PlayerID": userId,
-                    "EventName": "CommunityTournament"
+                    "EventName": "Community Tournament 2"
                 })
             }).then((res) => res.json());
 
             if (result?.data?.length > 0) {
                 const score = result.data.find((score: any) => score.Community == community)
-                if (score) {
+                if (score && score > 0) {
                     const userData: Player = {
                         Rank: score.Rank,
                         Points: score.Points
