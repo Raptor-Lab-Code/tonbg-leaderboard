@@ -21,7 +21,7 @@ export default function CommunityDetail() {
 
     useEffect(() => {
         const fetchLB = async () => {
-            const result = await fetch(`https://api.tonbg.com/leaderboards/CommunityTournament_leaderboard.json`)
+            const result = await fetch(`https://api.tonbg.com/leaderboards/Community%20Tournament%202_leaderboard.json`)
                 .then(res => res.json());
 
             const communityData = result.find((d: any) => d.Community == community);

@@ -17,9 +17,9 @@ export default function CommunityTournament() {
 
     useEffect(() => {
         const fetchLB = async () => {
-            const result = await fetch(`https://api.tonbg.com/leaderboards/CommunityTournament_leaderboard.json`)
-                .then(res => res.json())
-            setRanks(result)
+            const result = await fetch(`https://api.tonbg.com/leaderboards/Community%20Tournament%202_leaderboard.json`)
+                .then(res => res.json());
+            setRanks(result);
         }
         fetchLB();
     }, []);
@@ -31,7 +31,7 @@ export default function CommunityTournament() {
                 {ranks.map((rank: any, index) => (
                     <Link
                         key={index}
-                        to={`/Community/?community=${rank.Community}&userId=${userId}&embedded=${embedded}`}
+                        to={`/CommunityDetails/?community=${rank.Community}&userId=${userId}&embedded=${embedded}`}
                         className="w-full no-underline"
                         style={{ color: '#FFD700' }} // Gold color for text
                     >

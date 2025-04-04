@@ -5,6 +5,7 @@ import './App.css'
 import SeasonalLeaderboard from "./pages/SeasonalLeaderboard";
 import WhaleIOLeaderboard from "./pages/WhaleIO";
 import Season2Leaderboard from "./pages/Season2";
+import CommunityTournament from "./pages/CommunityTournament";
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Season2Leaderboard />} />
-          <Route path="/Community" element={<CommunityDetail />} />
+          <Route path="/Community" element={<CommunityTournament />} />
+          <Route path="/CommunityDetails" element={<CommunityDetail />} />
           <Route path="/Season1" element={<SeasonalLeaderboard />} />
           <Route path="/Season2" element={<Season2Leaderboard />} />
           <Route path="/WhaleIO" element={<WhaleIOLeaderboard />} />
