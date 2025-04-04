@@ -44,7 +44,7 @@ export default function CommunityDetail() {
 
             if (result?.data?.length > 0) {
                 const score = result.data.find((score: any) => score.Community == community)
-                if (score && score > 0) {
+                if (score && score.Points > 0) {
                     const userData: Player = {
                         Rank: score.Rank,
                         Points: score.Points
