@@ -1,4 +1,5 @@
 import LBRow from "@/components/LBRow";
+import JoinBtn from "@/components/JoinBtn";
 import { useEffect, useState } from "react";
 import useQueryParams from "@/hooks/useQueryParams";
 
@@ -34,29 +35,28 @@ export default function Season2() {
             const data = result.Season2;
 
             if (data && data.Rank) {
-                const userData: Player = {
+                const userData: Player = {  
                     Rank: data.Rank,
                     Points: data.NewPoints
                 }
                 setPersonal(userData);
-                setHeight(embedded ? 40 : 60);
             }
         }
         fetchUser();
     }, []);
 
     return (
-        <div className="w-[90%]">
-            <div className={`flex justify-center TON-title ${embedded ? `h-[15%] portrait:mt-16` : `h-[20%]`}`}></div>
-            <div className="flex flex-col justify-start items-center text-out mb-4">
-                <div className={`h-[33%] flex flex-row items-center gap-4`}>
+        <div className="w-[90%] h-screen flex flex-col p-4">
+            <JoinBtn/>
+            <div className="flex flex-col justify-start items-center mb-4">
+                <div className={`flex flex-row items-center gap-4`}>
                     <div className="text-center text-2xl">
                         Season 2
                     </div>
                 </div>
             </div>
-            {personal && <LBRow className="mt-4 mb-4" rank={personal.Rank} name={'You'} score={personal.Points} />}
-            <div style={{ height: `${height}%` }} className={`flex flex-col w-full flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide`}>
+            {personal && <LBRow className="mb-4" rank={personal.Rank} name={'You'} score={personal.Points} />}
+            <div className={`flex flex-col flex-grow w-full h-full items-center justify-start overflow-y-auto scrollbar-hide`}>
                 {ranks.map((rank: any, index) => (
                     <LBRow key={index} style={{ color: '#FFD700' }} className="w-full no-underline" rank={index + 1} name={rank.PlayerName} score={rank.Points} />
                 ))}

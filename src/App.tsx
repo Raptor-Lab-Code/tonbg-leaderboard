@@ -10,7 +10,7 @@ import CommunityTournament from "./pages/CommunityTournament";
 function App() {
 
   return (
-    <div className="flex justify-center max-w-[600px] w-screen h-screen p-4">
+    <div className="flex justify-center max-w-[600px] w-screen h-screen">
       <Router>
         <Routes>
           <Route path="/" element={<Season2Leaderboard />} />

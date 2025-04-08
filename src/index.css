@@ -31,8 +31,6 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 40px;
-  min-height: 100vh;
   background-image: url('/background.jpg');
   background-position: center;
   background-size: cover;
