@@ -21,7 +21,7 @@ export default function CommunityDetail() {
 
     useEffect(() => {
         const fetchLB = async () => {
-            const result = await fetch(`https://api.tonbg.com/leaderboards/CommunityTournament_leaderboard.json`)
+            const result = await fetch(`https://api.tonbg.com/leaderboards/Community%20Tournament%202_leaderboard.json`)
                 .then(res => res.json());
 
             const communityData = result.find((d: any) => d.Community == community);
@@ -38,13 +38,13 @@ export default function CommunityDetail() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     "PlayerID": userId,
-                    "EventName": "CommunityTournament"
+                    "EventName": "Community Tournament 2"
                 })
             }).then((res) => res.json());
 
             if (result?.data?.length > 0) {
                 const score = result.data.find((score: any) => score.Community == community)
-                if (score) {
+                if (score && score.Points > 0) {
                     const userData: Player = {
                         Rank: score.Rank,
                         Points: score.Points
