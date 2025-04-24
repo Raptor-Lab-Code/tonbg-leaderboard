@@ -3,7 +3,7 @@
 import { Link, useLocation } from "react-router-dom";
 import LBRow from "@/components/LBRow";
 import { useEffect, useState } from "react";
-import useQueryParams from "@/hooks/useQueryParamsPoor";
+import useQueryParams from "@/hooks/useQueryParams";
 
 import testData from '../assets/CommunityTournamentTestData.json';
 

@@ -1,5 +1,5 @@
 import LBRow from "@/components/LBRow";
-import useQueryParams from "@/hooks/useQueryParamsPoor";
+import useQueryParams from "@/hooks/useQueryParams";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
