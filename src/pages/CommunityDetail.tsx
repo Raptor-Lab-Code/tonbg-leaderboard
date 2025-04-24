@@ -1,6 +1,6 @@
 import LBRow from "@/components/LBRow";
 import { useEffect, useState } from "react";
-import useQueryParams from "@/hooks/useQueryParams";
+import useQueryParams from "@/hooks/useQueryParamsPoor";
 
 type Player = {
     Points: number;

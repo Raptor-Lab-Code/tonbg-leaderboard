@@ -1,16 +1,11 @@
-import { useLocation } from "react-router-dom";
+import { useMemo } from "react";
 
 export default function useQueryParams() {
-    const location = useLocation();
-    const queryParams = new URLSearchParams(location.search);
-
-    const userId = queryParams.get('userId');
-    const embedded = queryParams.get('embedded') === 'true';
-    const community = queryParams.get('community');
-
-    return {
-        userId,
-        embedded,
-        community
-    }
+    return useMemo(() => {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            userId: params.get("userId") || "",
+            embedded: params.get("embedded") === "true",
+        };
+    }, []);
 }

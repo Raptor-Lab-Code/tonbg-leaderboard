@@ -1,5 +1,5 @@
 import LBRow from "@/components/LBRow";
-import useQueryParams from "@/hooks/useQueryParams";
+import useQueryParams from "@/hooks/useQueryParamsPoor";
 import { useEffect, useState } from "react";
 
 export default function SeasonalLeaderboard() {
