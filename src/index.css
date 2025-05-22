@@ -80,6 +80,13 @@ button:focus-visible {
   }
 }
 
+.TON-Nation-title {
+  background-image: url('/img/TON_Nation-logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;  
+}
+
 .CB-title {
   background-image: url('/CommunitiesTournament.webp');
   background-size: contain;

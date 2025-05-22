@@ -4,7 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 import LBRow from "@/components/LBRow";
 import { useEffect, useState } from "react";
 import useQueryParams from "@/hooks/useQueryParams";
-import getLogo from "@/utils/getLogo";
 
 import testData from '../assets/CommunityTournamentTestData.json';
 
@@ -27,7 +26,7 @@ export default function TONNationP1() {
 
     return (
         <div className="w-[90%]">
-            <div className={`flex justify-center CB-title mb-8 ${embedded ? `h-[15%] portrait:mt-16`:`h-[20%]` }`}></div>
+            <div className={`flex justify-center TON-Nation-title mb-8 ${embedded ? `h-[15%] portrait:mt-16` : `h-[20%]`}`}></div>
             <div className="flex flex-col w-full h-[70%] flex-1 items-center justify-start gap-2 overflow-y-auto scrollbar-hide">
                 {ranks.map((rank: any, index) => (
                     <Link
@@ -36,11 +35,15 @@ export default function TONNationP1() {
                         className="w-full no-underline"
                         style={{ color: '#FFD700' }} // Gold color for text
                     >
-                        <LBRow rank={index + 1} name={rank.Community} logo={getLogo(rank.Community)} score={rank.TotalPoints} className="p-3" />
+                        <LBRow rank={index + 1} name={rank.Community} logo={getLogo(rank.Community)} score={rank.TotalPoints} className="p-3" rounded={false} />
                     </Link>
 
                 ))}
             </div>
         </div>
     );
+}
+
+function getLogo(name: string) {
+    return `/img/communities/TONation/${name}.png`
 }
