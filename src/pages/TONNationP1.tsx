@@ -31,7 +31,7 @@ export default function TONNationP1() {
                 {ranks.map((rank: any, index) => (
                     <Link
                         key={index}
-                        to={`/CommunityDetails/?community=${rank.Community}&userId=${userId}&embedded=${embedded}`}
+                        to={`/TONNation/Pool1/Details?community=${rank.Community}&userId=${userId}&embedded=${embedded}`}
                         className="w-full no-underline"
                         style={{ color: '#FFD700' }} // Gold color for text
                     >

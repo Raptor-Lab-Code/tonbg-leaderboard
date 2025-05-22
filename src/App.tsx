@@ -8,6 +8,7 @@ import Season2Leaderboard from "./pages/Season2";
 import CommunityTournament from "./pages/CommunityTournament";
 import PrivateGame from "./pages/PrivateGame";
 import TONNationP1 from "./pages/TONNationP1";
+import TONNationP1Details from "./pages/TONNationP1Details";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Season2Leaderboard />} />
           <Route path="/TONNation/Pool1" element={<TONNationP1 />} />
+          <Route path="/TONNation/Pool1/Details" element={<TONNationP1Details />} />
           <Route path="/Community" element={<CommunityTournament />} />
           <Route path="/CommunityDetails" element={<CommunityDetail />} />
           <Route path="/Season1" element={<SeasonalLeaderboard />} />
