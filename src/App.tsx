@@ -9,6 +9,8 @@ import CommunityTournament from "./pages/CommunityTournament";
 import PrivateGame from "./pages/PrivateGame";
 import TONNationP1 from "./pages/TONNationP1";
 import TONNationP1Details from "./pages/TONNationP1Details";
+import TONNationP2 from "./pages/TONNationP2";
+import TONNationP2Details from "./pages/TONNationP2Details";
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
           <Route path="/" element={<Season2Leaderboard />} />
           <Route path="/TONNation/Pool1" element={<TONNationP1 />} />
           <Route path="/TONNation/Pool1/Details" element={<TONNationP1Details />} />
+          <Route path="/TONNation/Pool2" element={<TONNationP2 />} />
+          <Route path="/TONNation/Pool2/Details" element={<TONNationP2Details />} />
           <Route path="/Community" element={<CommunityTournament />} />
           <Route path="/CommunityDetails" element={<CommunityDetail />} />
           <Route path="/Season1" element={<SeasonalLeaderboard />} />
