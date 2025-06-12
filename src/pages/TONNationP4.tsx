@@ -17,7 +17,7 @@ export default function TONNationP1() {
 
     useEffect(() => {
         const fetchLB = async () => {
-            const result = await fetch(`https://api.tonbg.com/leaderboards/TON%20Nation%20Second%20Round_leaderboard.json`)
+            const result = await fetch(`https://api.tonbg.com/leaderboards/TON%20Nation%20Forth%20Round_leaderboard.json`)
                 .then(res => res.json());
             setRanks(result);
         }
@@ -31,7 +31,7 @@ export default function TONNationP1() {
                 {ranks.map((rank: any, index) => (
                     <Link
                         key={index}
-                        to={`/TONNation/Pool2/Details?community=${rank.Community}&userId=${userId}&embedded=${embedded}`}
+                        to={`/TONNation/Pool4/Details?community=${rank.Community}&userId=${userId}&embedded=${embedded}`}
                         className="w-full no-underline"
                         style={{ color: '#FFD700' }} // Gold color for text
                     >

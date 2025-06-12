@@ -12,7 +12,7 @@ export default function CommunityTournament() {
     const [ranks, setRanks] = useState<typeof testData>([]);
 
     useEffect(() => {
-        document.title = "TON BG - Community Tournament";
+        document.title = "TON Nations";
     }, []);
 
     useEffect(() => {

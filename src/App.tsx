@@ -13,6 +13,8 @@ import TONNationP2 from "./pages/TONNationP2";
 import TONNationP2Details from "./pages/TONNationP2Details";
 import TONNationP3 from "./pages/TONNationP3";
 import TONNationP3Details from "./pages/TONNationP3Details";
+import TONNationP4 from "./pages/TONNationP4";
+import TONNationP4Details from "./pages/TONNationP4Details";
 
 function App() {
 
@@ -27,6 +29,8 @@ function App() {
           <Route path="/TONNation/Pool2/Details" element={<TONNationP2Details />} />
           <Route path="/TONNation/Pool3" element={<TONNationP3 />} />
           <Route path="/TONNation/Pool3/Details" element={<TONNationP3Details />} />
+          <Route path="/TONNation/Pool4" element={<TONNationP4 />} />
+          <Route path="/TONNation/Pool4/Details" element={<TONNationP4Details />} />
           <Route path="/Community" element={<CommunityTournament />} />
           <Route path="/CommunityDetails" element={<CommunityDetail />} />
           <Route path="/Season1" element={<SeasonalLeaderboard />} />
