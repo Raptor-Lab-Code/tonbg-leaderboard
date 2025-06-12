@@ -21,7 +21,7 @@ export default function TONNationP1Details() {
 
     useEffect(() => {
         const fetchLB = async () => {
-            const result = await fetch(`https://api.tonbg.com/leaderboards/TON%20Nation%20Forth%20Round_leaderboard.json`)
+            const result = await fetch(`https://api.tonbg.com/leaderboards/TON%20Nation%20Fourth%20Round_leaderboard.json`)
                 .then(res => res.json());
 
             const communityData = result.find((d: any) => d.Community == community);

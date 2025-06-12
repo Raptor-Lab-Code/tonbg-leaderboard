@@ -17,7 +17,7 @@ export default function TONNationP1() {
 
     useEffect(() => {
         const fetchLB = async () => {
-            const result = await fetch(`https://api.tonbg.com/leaderboards/TON%20Nation%20Forth%20Round_leaderboard.json`)
+            const result = await fetch(`https://api.tonbg.com/leaderboards/TON%20Nation%20Fourth%20Round_leaderboard.json`)
                 .then(res => res.json());
             setRanks(result);
         }
